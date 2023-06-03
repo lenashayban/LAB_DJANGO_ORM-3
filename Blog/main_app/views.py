@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post
+from .models import Post, Comment
 from django.http import HttpRequest
 
 # Create your views here.
@@ -53,3 +53,13 @@ def search(request:HttpRequest):
     search_phrase = request.GET.get("search", "")
     post = Post.objects.filter(Title__contains=search_phrase)
     return render(request, "main_app/search.html", {"posts" : post})
+
+
+def add_comment(request:HttpRequest, post_id):
+    if request.method == "POST":
+        post_object = Post.objects.get(id=post_id)
+        name = request.POST['name']
+        content = request.POST['content']
+        new_comment = Comment(post=post_object, name=name, content=content)
+        new_comment.save()
+    return redirect("main_app:post_details", post_id=post_id)
