@@ -1,0 +1,21 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+
+<div style="text-align: center">
+  <h1>Posts</h1>
+  {% for post in posts %}
+    <h2>{{ post.Title }}</h2>
+    <p>{{ post.Content }}</p>
+    <p>{{ post.publish_date }}</p>
+    {% if  post.is_published %}
+    <p>publish status: published</p>
+    {% else %}
+    <p>publish status: not published</p>
+    {% endif %}
+    <div> 
+      <a href="{% url 'main_app:post_details' post.id %}">details</a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
