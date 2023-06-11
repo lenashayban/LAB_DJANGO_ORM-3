@@ -2,36 +2,36 @@
 
 {% block content %}
 
-  <h1 style="text-align: center">Add Posts</h1>
-  <form method="post" style="text-align: center">
-    {% csrf_token %}
+<h1 style="text-align: center">Add Posts</h1>
+<form method="post" style="text-align: center">
+  {% csrf_token %}
 
   <div>
-      <label for="title">Title</label><br>
-      <input name="title" type="text">
+    <label for="title">Title</label><br>
+    <input name="title" type="text">
   </div>
-<br>
+  <br>
   <div>
-      <label for="content">Content</label><br>
-      <textarea name="content"></textarea>
+    <label for="content">Content</label><br>
+    <textarea name="content"></textarea>
   </div>
-<br>
+  <br>
   <div>
-      <label for="publish">Do you want to publish it?</label><br>
-      <select aria-label="Default select example" name="is_published">
-          <option value="True">True</option>
-          <option value="False">False</option>
-        </select>
+    <label for="publish">Do you want to publish it?</label><br>
+    <select aria-label="Default select example" name="is_published">
+      <option value="True">True</option>
+      <option value="False">False</option>
+    </select>
   </div>
-<br>
+  <br>
   <div>
-      <label for="birthdaytime">Date and Time:</label><br>
-      <input type="date" name="publish_date">
+    <label for="birthdaytime">Date and Time:</label><br>
+    <input type="date" name="publish_date">
   </div>
 
-<br>
-    <button type="submit">Add post</button>
-  </form>
+  <br>
+  <button type="submit">Add post</button>
+</form>
 <br>
 
 {% endblock %}
